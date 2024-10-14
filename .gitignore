@@ -1,0 +1,17 @@
+# Ignore the following Unity directories and files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+
+# Visual Studio / Rider
+[Aa]ssets/Plugins/Editor/JetBrains*
+[Aa]ssets/Plugins/Editor/Unity*.sln
+[Aa]ssets/Plugins/Editor/Unity*.csproj
+
+# Mac-specific files
+.DS_Store
+
