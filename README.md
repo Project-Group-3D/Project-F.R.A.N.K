@@ -35,3 +35,6 @@ Après avoir poussé leurs modifications, ils doivent aller sur GitHub pour cré
 
 ### Changer de branche
 "git checkout main" ici main est le nom de la branche mais vous pouvez le changer 
+
+### Mettre a jour sa branche (pour avoir les dernieres modif)
+"git pull origin main" ici on mets a jour la branche main
