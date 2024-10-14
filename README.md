@@ -39,4 +39,7 @@ Après avoir poussé leurs modifications, ils doivent aller sur GitHub pour cré
 ### -> Comment Mettre a jour sa branche (pour avoir les dernieres modif)
 "git pull origin main" ici on mets a jour la branche main
 
+### -> Mettre a jour le depot pour voir les nouvelles branches
+"git fetch --all"
+
 ### Ensuite on merge la branche sur laquelle les modifications on été faites sur la branche principale "main" pour avoir le code au complet
