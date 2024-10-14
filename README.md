@@ -33,3 +33,5 @@ Ils poussent leurs changements sur la branche qu'ils ont créée :
 ### Créer une Pull Request :
 Après avoir poussé leurs modifications, ils doivent aller sur GitHub pour créer une Pull Request afin de fusionner leurs changements dans la branche main.
 
+### Changer de branche
+"git checkout main" ici main est le nom de la branche mais vous pouvez le changer 
