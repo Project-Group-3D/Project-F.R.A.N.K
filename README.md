@@ -42,4 +42,7 @@ Après avoir poussé leurs modifications, ils doivent aller sur GitHub pour cré
 ### -> Mettre a jour le depot pour voir les nouvelles branches
 "git fetch --all"
 
+### -> Voir toute les branchs
+"git branch -r"
+
 ### Ensuite on merge la branche sur laquelle les modifications on été faites sur la branche principale "main" pour avoir le code au complet
