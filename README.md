@@ -45,4 +45,7 @@ Après avoir poussé leurs modifications, ils doivent aller sur GitHub pour cré
 ### -> Voir toute les branchs
 "git branch -r"
 
+### -> Supprimer les modifications faites sur la branche actuelle
+"git reset --hard"
+
 ### Ensuite on merge la branche sur laquelle les modifications on été faites sur la branche principale "main" pour avoir le code au complet
