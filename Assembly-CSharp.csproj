@@ -64,11 +64,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Grass And Flowers Pack 1\Example Scene\SimpleTextureDrawing.cs" />
+    <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
     <Compile Include="Assets\DemonTree\Assets\Script\DemonMovement.cs" />
     <Compile Include="Assets\ModularFirstPersonController\FirstPersonController\FirstPersonController.cs" />
+    <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Reflection.cs" />
+    <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TerrainSampleAssets\ThirdPartyNotices.txt" />
+    <None Include="Assets\AQUAS-Lite\Shaders\AQUAS-Lite_Frontface.shader" />
+    <None Include="Assets\AQUAS-Lite\Readme.txt" />
+    <None Include="Assets\AQUAS-Lite\Shaders\AQUAS-Lite_Backface.shader" />
     <None Include="Assets\Grass And Flowers Pack 1\Example Scene\Skyboxes\_skybox info.txt" />
     <None Include="Assets\TerrainSampleAssets\ShaderGraphs\CustomFunctions\CustomLighting.hlsl" />
   </ItemGroup>
