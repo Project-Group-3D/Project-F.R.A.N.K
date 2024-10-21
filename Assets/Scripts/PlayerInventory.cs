@@ -31,6 +31,11 @@ public class PlayerInventory : MonoBehaviour
         {
             Vector3 dropPosition = playerCamera.transform.position + playerCamera.transform.forward * 2f;
             inventory.DropItem(0, dropPosition); // Dépose l'objet devant la caméra
-        }
+        }        
+
+
+        
     }
+
+    
 }
