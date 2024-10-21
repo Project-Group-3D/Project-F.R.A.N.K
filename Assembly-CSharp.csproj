@@ -65,8 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Camera.cs" />
+    <Compile Include="Assets/Scripts/PlayerInventory.cs" />
     <Compile Include="Assets/DemonTree/Assets/Script/DemonMovement.cs" />
     <Compile Include="Assets/ModularFirstPersonController/FirstPersonController/FirstPersonController.cs" />
+    <Compile Include="Assets/Scripts/Inventory.cs" />
+    <Compile Include="Assets/Scripts/PickableObject.cs" />
     <Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Reflection.cs" />
     <Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_CamNav.cs" />
   </ItemGroup>
