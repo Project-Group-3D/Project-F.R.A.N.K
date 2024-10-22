@@ -5,6 +5,7 @@ using TMPro; // Si tu utilises TextMeshPro
 public class QuestManager : MonoBehaviour
 {
     public TextMeshProUGUI questText; // Le texte pour afficher les quêtes
+    public TextMeshProUGUI tutorialText; // Le texte pour afficher "Tutoriel :"
     private List<string> quests = new List<string>(); // Liste des quêtes
     private List<bool> questStatus = new List<bool>(); // Statut des quêtes (complétées ou non)
 
@@ -57,10 +58,15 @@ public class QuestManager : MonoBehaviour
             }
         }
 
-        // Si toutes les quêtes sont terminées, on masque le panneau
+        // Si toutes les quêtes sont terminées, on masque le texte des quêtes et le texte "Tutoriel"
         if (allCompleted)
         {
-            questText.gameObject.SetActive(false); // Masquer le texte
+            questText.gameObject.SetActive(false); // Masquer le texte des quêtes
+            tutorialText.gameObject.SetActive(false); // Masquer le texte "Tutoriel"
+        }
+        else
+        {
+            tutorialText.gameObject.SetActive(true); // Afficher "Tutoriel :" tant que toutes les quêtes ne sont pas complétées
         }
     }
 }
