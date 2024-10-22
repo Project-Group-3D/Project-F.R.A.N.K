@@ -71,6 +71,7 @@
     <Compile Include="Assets/Scripts/Inventory.cs" />
     <Compile Include="Assets/Scripts/PickableObject.cs" />
     <Compile Include="Assets/Scripts/PlayerInteraction.cs" />
+    <Compile Include="Assets/Scripts/QuestManager.cs" />
     <Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Reflection.cs" />
     <Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_CamNav.cs" />
     <Compile Include="Assets/Scripts/MainMenuScript.cs" />
