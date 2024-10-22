@@ -71,6 +71,7 @@
     <Compile Include="Assets/Scripts/Inventory.cs" />
     <Compile Include="Assets/Scripts/PickableObject.cs" />
     <Compile Include="Assets/Scripts/PlayerInteraction.cs" />
+    <Compile Include="Assets/Scripts/QuestManager.cs" />
     <Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Reflection.cs" />
     <Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_CamNav.cs" />
     <Compile Include="Assets/Scripts/MainMenuScript.cs" />
@@ -79,6 +80,7 @@
     <None Include="Assets/TerrainSampleAssets/ThirdPartyNotices.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets/2ue50ws967mo-campfire_model/Campfire Readme.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />

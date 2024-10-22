@@ -11,4 +11,6 @@ public class PickableObject : MonoBehaviour
         // Désactive l'objet dans la scène, mais il sera stocké en mémoire
         gameObject.SetActive(false);
     }
+
+    
 }
