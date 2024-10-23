@@ -29,7 +29,7 @@ public class PlayerInventory : MonoBehaviour
             }
         }
 
-        // Déposer l'objet avec la touche 'Q'
+        // Déposer l'objet avec la touche 'R'
         if (Input.GetKeyDown(KeyCode.R))
         {
             Vector3 dropPosition = playerCamera.transform.position + playerCamera.transform.forward * 2f;

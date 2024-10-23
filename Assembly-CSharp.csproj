@@ -73,6 +73,7 @@
     <Compile Include="Assets/Scripts/PlayerInteraction.cs" />
     <Compile Include="Assets/Scripts/QuestManager.cs" />
     <Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Reflection.cs" />
+    <Compile Include="Assets/Scripts/CameraMover.cs" />
     <Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_CamNav.cs" />
     <Compile Include="Assets/Scripts/MainMenuScript.cs" />
   </ItemGroup>
