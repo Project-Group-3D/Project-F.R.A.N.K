@@ -25,14 +25,13 @@ public class chasePlayer : MonoBehaviour
 
     void Update()
     {
-        // Mettre à jour la vitesse de l'agent et l'envoyer à l'Animator
-        float speed = navMeshAgent.velocity.magnitude;
-        animator.SetFloat("Speed", speed);
-
         if (isChasingPlayer)
         {
             // Poursuivre le joueur
             navMeshAgent.SetDestination(player.position);
+
+            // Appliquer la rotation vers la direction du mouvement
+            RotateTowards(navMeshAgent.steeringTarget);
 
             // Vérifier si le joueur est toujours visible
             if (!CanSeePlayer())
@@ -55,6 +54,23 @@ public class chasePlayer : MonoBehaviour
                 isChasingPlayer = true;
             }
         }
+
+        // Si le monstre se déplace, tourner dans la direction du mouvement
+        if (navMeshAgent.velocity.sqrMagnitude > 0.1f)
+        {
+            RotateTowards(navMeshAgent.steeringTarget);
+        }
+    }
+
+    // Fonction pour faire tourner l'ennemi vers la direction du mouvement
+    void RotateTowards(Vector3 target)
+    {
+        Vector3 direction = (target - transform.position).normalized;
+        
+        // Appliquer un offset de 90° sur l'axe Y si le modèle est mal orienté
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z)) * Quaternion.Euler(0, 90, 0); // Ajuste ici l'offset
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
     void MoveToNextWaypoint()
