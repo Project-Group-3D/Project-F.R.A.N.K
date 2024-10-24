@@ -9777,13 +9777,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1952943731}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1952943737}
+        m_TargetAssemblyTypeName: chasePlayer, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10974,56 +10974,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100106, guid: aa723b44260e74040869a722c46a85c5, type: 3}
   m_PrefabInstance: {fileID: 2071233716}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1952943734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952943731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08c1a474c649c442b303098238c99dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 2107643153}
-  - {fileID: 1423427201}
-  - {fileID: 684768280}
-  - {fileID: 622726523}
-  - {fileID: 1272032123}
-  - {fileID: 648481527}
-  - {fileID: 537952806}
-  - {fileID: 873553758}
-  - {fileID: 186545113}
-  - {fileID: 528655490}
-  - {fileID: 929328693}
-  - {fileID: 1092601340}
-  - {fileID: 1261167718}
-  - {fileID: 735240803}
-  - {fileID: 967157115}
-  - {fileID: 168594963}
-  - {fileID: 1244206610}
-  - {fileID: 2030923018}
-  - {fileID: 1616537610}
-  - {fileID: 1740956723}
-  - {fileID: 1586344795}
-  - {fileID: 947136333}
-  - {fileID: 1377319472}
-  - {fileID: 1267525407}
-  - {fileID: 772059868}
-  waypointTolerance: 1
-  detectionRange: 21
-  fieldOfViewAngle: 360
-  player: {fileID: 1417259382}
-  normalSpeed: 4.5
-  chaseSpeed: 6
-  playerCamera: {fileID: 598663562}
-  shakeDuration: 0.5
-  shakeMagnitude: 0.1
-  attackRange: 2
-  attackCooldown: 2
-  playerHealth: 100
 --- !u!195 &1952943735
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -11067,6 +11017,58 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 11.341055, y: 7.1510744, z: 7.086622}
   m_Center: {x: 5.1705236, y: 3.0755372, z: -0.2453835}
+--- !u!114 &1952943737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952943731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08c1a474c649c442b303098238c99dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 2107643153}
+  - {fileID: 1423427201}
+  - {fileID: 684768280}
+  - {fileID: 622726523}
+  - {fileID: 1272032123}
+  - {fileID: 648481527}
+  - {fileID: 537952806}
+  - {fileID: 873553758}
+  - {fileID: 186545113}
+  - {fileID: 528655490}
+  - {fileID: 929328693}
+  - {fileID: 1092601340}
+  - {fileID: 1261167718}
+  - {fileID: 735240803}
+  - {fileID: 967157115}
+  - {fileID: 168594963}
+  - {fileID: 1244206610}
+  - {fileID: 2030923018}
+  - {fileID: 1616537610}
+  - {fileID: 1740956723}
+  - {fileID: 1586344795}
+  - {fileID: 947136333}
+  - {fileID: 1377319472}
+  - {fileID: 1267525407}
+  - {fileID: 772059868}
+  waypointTolerance: 1
+  detectionRange: 21
+  fieldOfViewAngle: 360
+  player: {fileID: 1417259382}
+  normalSpeed: 3.5
+  chaseSpeed: 5.25
+  playerCamera: {fileID: 598663562}
+  shakeDuration: 1
+  shakeMagnitude: 0.3
+  attackRange: 2
+  attackCooldown: 2
+  playerHealth: 100
+  gameOverScreen: {fileID: 1070348002}
+  retryButton: {fileID: 1577696957}
 --- !u!1 &1958418755
 GameObject:
   m_ObjectHideFlags: 0
@@ -11451,13 +11453,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100106, guid: aa723b44260e74040869a722c46a85c5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1952943734}
-    - targetCorrespondingSourceObject: {fileID: 100106, guid: aa723b44260e74040869a722c46a85c5, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1952943735}
     - targetCorrespondingSourceObject: {fileID: 100106, guid: aa723b44260e74040869a722c46a85c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1952943736}
+    - targetCorrespondingSourceObject: {fileID: 100106, guid: aa723b44260e74040869a722c46a85c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1952943737}
   m_SourcePrefab: {fileID: 100100000, guid: aa723b44260e74040869a722c46a85c5, type: 3}
 --- !u!1 &2088234329
 GameObject:

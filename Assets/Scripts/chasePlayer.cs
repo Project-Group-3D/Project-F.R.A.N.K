@@ -2,32 +2,33 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement; // Pour recharger la scène
 using UnityEngine.UI; // Pour manipuler l'UI
+using System.Collections;
 
 public class chasePlayer : MonoBehaviour
 {
-    public Transform[] waypoints;
-    public float waypointTolerance = 1f;
-    public float detectionRange = 10f;
-    public float fieldOfViewAngle = 45f;
-    public Transform player;
-    public float normalSpeed = 3.5f;
-    public float chaseSpeed = 5.25f;
-    public Camera playerCamera;
-    public float shakeDuration = 0.5f;
-    public float shakeMagnitude = 0.1f;
-    public float attackRange = 2f;
-    public float attackCooldown = 2f;
-    public int playerHealth = 100;
+    public Transform[] waypoints; // Points de patrouille
+    public float waypointTolerance = 1f; // Tolérance de distance pour atteindre le waypoint
+    public float detectionRange = 10f; // Distance de détection du joueur
+    public float fieldOfViewAngle = 45f; // Champ de vision de l'ennemi
+    public Transform player; // Référence au joueur
+    public float normalSpeed = 3.5f; // Vitesse de patrouille normale
+    public float chaseSpeed = 5.25f; // Vitesse de poursuite du joueur
+    public Camera playerCamera; // Référence à la caméra du joueur
+    public float shakeDuration = 0.5f; // Durée de secousse de la caméra
+    public float shakeMagnitude = 0.1f; // Amplitude de la secousse de la caméra
+    public float attackRange = 2f; // Portée d'attaque de l'ennemi
+    public float attackCooldown = 2f; // Délai entre les attaques
+    public int playerHealth = 100; // Santé du joueur
 
-    public GameObject gameOverScreen; // Référence à l'écran Game Over
+    public GameObject gameOverScreen; // Référence au canvas Game Over
     public Button retryButton; // Bouton pour redémarrer la partie
 
-    private NavMeshAgent navMeshAgent;
-    private Animator animator;
-    private int currentWaypointIndex = 0;
-    private bool isChasingPlayer = false;
-    private Vector3 originalCameraPosition;
-    private bool canAttack = true;
+    private NavMeshAgent navMeshAgent; // Agent de navigation de l'ennemi
+    private Animator animator; // Référence à l'Animator
+    private int currentWaypointIndex = 0; // Index du waypoint courant
+    private bool isChasingPlayer = false; // L'ennemi poursuit-il le joueur ?
+    private Vector3 originalCameraPosition; // Position initiale de la caméra du joueur
+    private bool canAttack = true; // L'ennemi peut-il attaquer ?
 
     void Start()
     {
@@ -42,47 +43,54 @@ public class chasePlayer : MonoBehaviour
             originalCameraPosition = playerCamera.transform.localPosition;
         }
 
-        // Assigner la fonction de redémarrage au bouton
+        // Configuration du bouton "Retry" pour relancer la partie
         retryButton.onClick.AddListener(RestartGame);
-        gameOverScreen.SetActive(false); // Cacher l'écran de game over au début
+        gameOverScreen.SetActive(false); // Cacher l'écran Game Over au démarrage
+
+        playerHealth = 100; // Réinitialise la santé du joueur au début de la scène
+        Time.timeScale = 1; // Remet le jeu en marche
     }
 
     void Update()
     {
         if (playerHealth > 0)
         {
+            // Vérifier si l'ennemi peut voir le joueur
+            if (CanSeePlayer())
+            {
+                isChasingPlayer = true;  // Début de la poursuite
+            }
+
             if (isChasingPlayer)
             {
+                // Active la poursuite
                 navMeshAgent.speed = chaseSpeed;
                 navMeshAgent.SetDestination(player.position);
                 RotateTowards(navMeshAgent.steeringTarget);
 
+                // Définir les paramètres de l'Animator pour "crawl_fast"
+                animator.SetBool("isChasing", true);
+
+                // Si le joueur est à portée, attaquer
                 if (Vector3.Distance(transform.position, player.position) <= attackRange && canAttack)
                 {
-                    AttackPlayer(); // Lancer l'attaque si le joueur est à portée
-                }
-
-                if (!CanSeePlayer())
-                {
-                    isChasingPlayer = false;
-                    navMeshAgent.speed = normalSpeed;
-                    MoveToNextWaypoint();
+                    AttackPlayer(); // Lancer l'attaque
                 }
             }
             else
             {
+                // Patrouille normale
                 navMeshAgent.speed = normalSpeed;
                 if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < waypointTolerance)
                 {
                     MoveToNextWaypoint();
                 }
 
-                if (CanSeePlayer())
-                {
-                    isChasingPlayer = true;
-                }
+                // Définir les paramètres de l'Animator pour "crawl"
+                animator.SetBool("isChasing", false);
             }
 
+            // Ajuster la rotation si l'ennemi se déplace
             if (navMeshAgent.velocity.sqrMagnitude > 0.1f)
             {
                 RotateTowards(navMeshAgent.steeringTarget);
@@ -90,10 +98,11 @@ public class chasePlayer : MonoBehaviour
         }
         else
         {
-            ShowGameOverScreen(); // Affiche l'écran "Game Over" si le joueur est mort
+            ShowGameOverScreen(); // Afficher l'écran Game Over si le joueur est mort
         }
     }
 
+    // Rotation vers la cible
     void RotateTowards(Vector3 target)
     {
         Vector3 direction = (target - transform.position).normalized;
@@ -101,6 +110,7 @@ public class chasePlayer : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
+    // Passer au prochain waypoint de la patrouille
     void MoveToNextWaypoint()
     {
         if (waypoints.Length == 0) return;
@@ -108,6 +118,7 @@ public class chasePlayer : MonoBehaviour
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
     }
 
+    // Vérifie si l'ennemi peut voir le joueur
     bool CanSeePlayer()
     {
         Vector3 directionToPlayer = player.position - transform.position;
@@ -127,22 +138,28 @@ public class chasePlayer : MonoBehaviour
         return false;
     }
 
+    // Fonction pour attaquer le joueur
     void AttackPlayer()
     {
         canAttack = false;
-        animator.SetTrigger("Attack");
+
+        // Déclencher l'animation d'attaque avec un Trigger
+        animator.SetTrigger("Attack"); // L'animation d'attaque démarre
+
         StartCoroutine(CameraShake());
-        playerHealth = 0; // Mettre la santé du joueur à zéro
+        playerHealth = 0; // Réduire la santé du joueur à zéro
         Debug.Log("Player has been oneshotted!");
         StartCoroutine(AttackCooldown());
     }
 
+    // Cooldown d'attaque
     IEnumerator AttackCooldown()
     {
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
     }
 
+    // Secousse de la caméra
     IEnumerator CameraShake()
     {
         float elapsed = 0.0f;
@@ -158,17 +175,21 @@ public class chasePlayer : MonoBehaviour
         playerCamera.transform.localPosition = originalCameraPosition;
     }
 
-    // Affiche l'écran "Game Over"
+    // Affiche l'écran Game Over
     void ShowGameOverScreen()
     {
+        Debug.Log("Game Over Screen Displayed");
         gameOverScreen.SetActive(true);
         Time.timeScale = 0; // Arrête le jeu
+        Cursor.lockState = CursorLockMode.None; // Si le curseur est caché, affiche-le
+        Cursor.visible = true; // Rendre le curseur visible
     }
+
 
     // Fonction pour redémarrer le jeu
     public void RestartGame()
     {
-        Time.timeScale = 1; // Remet le jeu en marche
+        Debug.Log("RestartGame method triggered");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Recharge la scène
     }
 }
