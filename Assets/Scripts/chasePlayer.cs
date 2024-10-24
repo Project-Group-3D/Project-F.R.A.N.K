@@ -17,7 +17,7 @@ public class chasePlayer : MonoBehaviour
     public float shakeDuration = 0.5f; // Durée de secousse de la caméra
     public float shakeMagnitude = 0.1f; // Amplitude de la secousse de la caméra
     public float attackRange = 2f; // Portée d'attaque de l'ennemi
-    public float attackCooldown = 2f; // Délai entre les attaques
+    public float attackCooldown = 1.5f; // Délai entre les attaques
     public int playerHealth = 100; // Santé du joueur
 
     public GameObject gameOverScreen; // Référence au canvas Game Over
@@ -71,12 +71,16 @@ public class chasePlayer : MonoBehaviour
                 // Définir les paramètres de l'Animator pour "crawl_fast"
                 animator.SetBool("isChasing", true);
 
+                // Déclencher la secousse de la caméra au début de la poursuite
+                StartCoroutine(CameraShake());
+
                 // Si le joueur est à portée, attaquer
                 if (Vector3.Distance(transform.position, player.position) <= attackRange && canAttack)
                 {
                     AttackPlayer(); // Lancer l'attaque
                 }
             }
+
             else
             {
                 // Patrouille normale

@@ -11062,7 +11062,7 @@ MonoBehaviour:
   normalSpeed: 3.5
   chaseSpeed: 5.25
   playerCamera: {fileID: 598663562}
-  shakeDuration: 1
+  shakeDuration: 3
   shakeMagnitude: 0.3
   attackRange: 2
   attackCooldown: 2
