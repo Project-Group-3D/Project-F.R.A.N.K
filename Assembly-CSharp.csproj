@@ -63,18 +63,19 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.46f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-<Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Camera.cs" />
-<Compile Include="Assets/Scripts/PlayerInventory.cs" />
-<Compile Include="Assets/Packages/DemonTree/Assets/Script/DemonMovement.cs" />
-<Compile Include="Assets/Scripts/chasePlayer.cs" />
-<Compile Include="Assets/ModularFirstPersonController/FirstPersonController/FirstPersonController.cs" />
-<Compile Include="Assets/Scripts/Inventory.cs" />
-<Compile Include="Assets/Scripts/PickableObject.cs" />
-<Compile Include="Assets/Scripts/PlayerInteraction.cs" />
-<Compile Include="Assets/Scripts/QuestManager.cs" />
-<Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_Reflection.cs" />
-<Compile Include="Assets/AQUAS-Lite/Scripts/AQUAS_Lite_CamNav.cs" />
-<Compile Include="Assets/Scripts/MainMenuScript.cs" />
+    <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
+    <Compile Include="Assets\Scripts\PlayerInventory.cs" />
+    <Compile Include="Assets\Packages\DemonTree\Assets\Script\DemonMovement.cs" />
+    <Compile Include="Assets\chasePlayer.cs" />
+    <Compile Include="Assets\ModularFirstPersonController\FirstPersonController\FirstPersonController.cs" />
+    <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\PickableObject.cs" />
+    <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
+    <Compile Include="Assets\Scripts\QuestManager.cs" />
+    <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_Reflection.cs" />
+    <Compile Include="Assets\Scripts\CameraMover.cs" />
+    <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
+    <Compile Include="Assets\Scripts\MainMenuScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TerrainSampleAssets\ThirdPartyNotices.txt" />
