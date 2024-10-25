@@ -1,0 +1,6 @@
+Uploading LFS objects: 100% (3/3), 7.1 MB | 0 B/s, done.
+error: RPC failed; curl 55 Recv failure: Connection reset by peer
+send-pack: unexpected disconnect while reading sideband packet
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+error: waitpid for git-remote-https failed: No child processes
