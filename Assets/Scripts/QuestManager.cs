@@ -1,72 +1,100 @@
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // Si tu utilises TextMeshPro
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
-    public TextMeshProUGUI questText; // Le texte pour afficher les quêtes
-    public TextMeshProUGUI tutorialText; // Le texte pour afficher "Tutoriel :"
-    private List<string> quests = new List<string>(); // Liste des quêtes
-    private List<bool> questStatus = new List<bool>(); // Statut des quêtes (complétées ou non)
+    public TextMeshProUGUI questText; // Texte pour afficher les quêtes en cours
+    public TextMeshProUGUI tutorialText; // Texte pour afficher "Tutoriel :"
+
+    private List<string> tutorialQuests = new List<string>(); // Liste des quêtes de tutoriel
+    private List<bool> tutorialQuestStatus = new List<bool>(); // Statut des quêtes de tutoriel
+    private List<string> mainQuests = new List<string>(); // Liste des quêtes principales
+    private List<bool> mainQuestStatus = new List<bool>(); // Statut des quêtes principales
 
     void Start()
     {
-        // Ajouter les quêtes initiales
-        AddQuest("Récupérer la hache");
-        AddQuest("Ramasser la lampe torche");
+        // Ajoutez les quêtes de tutoriel
+        AddTutorialQuest("Récupérer la hache");
+        AddTutorialQuest("Ramasser la lampe torche");
 
-        UpdateQuestUI(); // Mettre à jour l'interface utilisateur
+        UpdateQuestUI();
     }
 
-    // Ajouter une quête
+    // Ajouter une quête de tutoriel
+    public void AddTutorialQuest(string quest)
+    {
+        tutorialQuests.Add(quest);
+        tutorialQuestStatus.Add(false);
+        UpdateQuestUI();
+    }
+
+    // Ajouter une quête principale
     public void AddQuest(string quest)
     {
-        quests.Add(quest);
-        questStatus.Add(false); // Par défaut, la quête n'est pas encore complétée
+        mainQuests.Add(quest);
+        mainQuestStatus.Add(false);
         UpdateQuestUI();
+    }
+
+    public bool IsTutorialCompleted()
+    {
+        return tutorialQuestStatus.TrueForAll(status => status);
     }
 
     // Marquer une quête comme terminée
     public void CompleteQuest(string quest)
     {
-        int index = quests.IndexOf(quest);
+        int index = tutorialQuests.IndexOf(quest);
         if (index != -1)
         {
-            questStatus[index] = true;
-            UpdateQuestUI();
-        }
-    }
-
-    // Mettre à jour le texte des quêtes
-    void UpdateQuestUI()
-    {
-        questText.text = "";
-        bool allCompleted = true;
-
-        for (int i = 0; i < quests.Count; i++)
-        {
-            if (questStatus[i])
-            {
-                // Si la quête est terminée, on la barre
-                questText.text += "<s>" + quests[i] + "</s>\n";
-            }
-            else
-            {
-                // Si la quête n'est pas encore terminée, on l'affiche normalement
-                questText.text += quests[i] + "\n";
-                allCompleted = false; // Si une quête n'est pas complétée, on garde le panneau visible
-            }
-        }
-
-        // Si toutes les quêtes sont terminées, on masque le texte des quêtes et le texte "Tutoriel"
-        if (allCompleted)
-        {
-            questText.gameObject.SetActive(false); // Masquer le texte des quêtes
-            tutorialText.gameObject.SetActive(false); // Masquer le texte "Tutoriel"
+            tutorialQuestStatus[index] = true;
         }
         else
         {
-            tutorialText.gameObject.SetActive(true); // Afficher "Tutoriel :" tant que toutes les quêtes ne sont pas complétées
+            index = mainQuests.IndexOf(quest);
+            if (index != -1)
+            {
+                mainQuestStatus[index] = true;
+            }
         }
+        UpdateQuestUI();
     }
+
+    // Mise à jour de l'affichage des quêtes
+    void UpdateQuestUI()
+    {
+        questText.text = "";
+        bool allTutorialCompleted = IsTutorialCompleted();
+
+        if (!allTutorialCompleted)
+        {
+            tutorialText.gameObject.SetActive(true); // Affiche "Tutoriel :" tant que le tutoriel n'est pas terminé
+
+            // Affiche les quêtes de tutoriel non terminées
+            for (int i = 0; i < tutorialQuests.Count; i++)
+            {
+                if (!tutorialQuestStatus[i])
+                {
+                    questText.text += tutorialQuests[i] + "\n";
+                }
+            }
+        }
+        else
+        {
+            tutorialText.gameObject.SetActive(false); // Masque "Tutoriel :"
+        }
+
+        // Affiche les quêtes principales en cours
+        for (int i = 0; i < mainQuests.Count; i++)
+        {
+            if (!mainQuestStatus[i])
+            {
+                questText.text += mainQuests[i] + "\n";
+            }
+        }
+
+        questText.gameObject.SetActive(questText.text.Length > 0); // Masque questText si aucune quête n'est à afficher
+    }
+   
 }
