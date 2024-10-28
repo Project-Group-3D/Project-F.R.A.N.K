@@ -12,6 +12,8 @@ public class PlayerInteraction : MonoBehaviour
     private PickableObject currentObject;
     private QuestManager questManager; // Référence au QuestManager
     public Inventory inventory; // Référence à l'inventaire
+    public GameObject fishingBoat; // Référence à l'objet fishing_boat
+
 
 
 
@@ -21,6 +23,7 @@ public class PlayerInteraction : MonoBehaviour
         actionText.gameObject.SetActive(false); // Masquer le texte au début
         questManager = FindObjectOfType<QuestManager>(); // Trouver le QuestManager
         inventory = FindObjectOfType<Inventory>(); // Trouver l'Inventory
+        fishingBoat.SetActive(false);
     }
 
     void Update()
@@ -101,26 +104,26 @@ public class PlayerInteraction : MonoBehaviour
     }
 }
 
-        else if (npc != null && questManager.IsTutorialCompleted() && inventory.itemsInInventory.Exists(item => item.itemName == "Gem2"))
+else if (npc != null && questManager.IsTutorialCompleted() && inventory.itemsInInventory.Exists(item => item.itemName == "Gem2"))
 {
-    ShowActionText("N pour intéragir");
+    ShowActionText("N pour parler");
     if (Input.GetKeyDown(KeyCode.N))
     {
-        // Compléter la quête
         questManager.CompleteQuest("Ramener la deuxième gem");
-        
-        // Retirer l'objet "Gem1" de l'inventaire
         int indexToRemove = inventory.itemsInInventory.FindIndex(item => item.itemName == "Gem2");
         if (indexToRemove != -1)
         {
-            inventory.RemoveItem(indexToRemove); // Supprimer l'objet de l'inventaire
+            inventory.RemoveItem(indexToRemove);
         }
-
-        npc.Interact(); // Appel à la méthode Interact de l'objet NPC
-        StartQuest("Echappe toi !");
         
+        npc.Interact(); 
+        StartQuest("Échappe-toi"); // Ajoute la quête "Échappe-toi"
+        
+        // Affiche l'objet "fishing_boat"
+        fishingBoat.SetActive(true); // Assurez-vous d'avoir une référence à l'objet
     }
 }
+
 
     }
     else
