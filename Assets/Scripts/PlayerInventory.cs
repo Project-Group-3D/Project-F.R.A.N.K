@@ -73,6 +73,21 @@ public class PlayerInventory : MonoBehaviour
             questManager.CompleteQuest("Ramasser la lampe torche");
             EquipItem("Flashlight"); // Équipe automatiquement la lampe torche
         }
+        else if (pickableObject.itemName == "Gem1")
+        {
+            questManager.CompleteQuest("Trouver la gem");
+            EquipItem("Gem1"); // Équipe automatiquement la lampe torche
+        }
+        else if (pickableObject.itemName == "Key")
+        {
+            questManager.CompleteQuest("Trouver la clés");
+            EquipItem("Key"); // Équipe automatiquement la lampe torche
+        }
+        else if (pickableObject.itemName == "Gem2")
+        {
+            questManager.CompleteQuest("Trouver la deuxième gem");
+            EquipItem("Gem2"); // Équipe automatiquement la lampe torche
+        }
     }
 
     // Nouvelle fonction pour déposer un objet
@@ -130,4 +145,6 @@ public class PlayerInventory : MonoBehaviour
             }
         }
     }
+
+
 }
