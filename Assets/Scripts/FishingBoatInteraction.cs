@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class FishingBoatInteraction : MonoBehaviour
 {
     public GameObject blackScreen; // Référence à un objet qui affichera un écran noir
@@ -50,4 +51,6 @@ public class FishingBoatInteraction : MonoBehaviour
         Application.Quit(); // Pour les builds
         // SceneManager.LoadScene("Menu"); // Pour revenir à un menu si vous êtes en mode développement
     }
+
+
 }
