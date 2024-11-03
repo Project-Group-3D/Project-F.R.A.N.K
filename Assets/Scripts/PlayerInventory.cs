@@ -150,6 +150,7 @@ public class PlayerInventory : MonoBehaviour
 
     void DeactivateCurrentItem()
     {
+
         if (currentItem == "Axe") axeInHand.SetActive(false);
         else if (currentItem == "Flashlight") flashlightInHand.SetActive(false);
         else if (currentItem == "Key") keyInHand.SetActive(false);
