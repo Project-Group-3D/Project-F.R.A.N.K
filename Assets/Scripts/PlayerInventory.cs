@@ -10,7 +10,8 @@ public class PlayerInventory : MonoBehaviour
     public GameObject axeInHand; // Référence à la hache dans la main
     public GameObject flashlightInHand; // Référence à la lampe torche dans la main
     public GameObject keyInHand; // Référence à la clé dans la main
-    public GameObject gemInHand; // Référence à la gemme dans la main
+    public GameObject gem1InHand; // Référence à Gem1 dans la main
+    public GameObject gem2InHand; // Référence à Gem2 dans la main
 
     private string currentItem = ""; // Variable pour suivre l'objet actuellement équipé
 
@@ -19,7 +20,8 @@ public class PlayerInventory : MonoBehaviour
         axeInHand.SetActive(false);
         flashlightInHand.SetActive(false);
         keyInHand.SetActive(false);
-        gemInHand.SetActive(false);
+        gem1InHand.SetActive(false);
+        gem2InHand.SetActive(false);
     }
 
     void Update()
@@ -78,10 +80,15 @@ public class PlayerInventory : MonoBehaviour
             questManager.CompleteQuest("Trouver la clé");
             EquipItem("Key");
         }
-        else if (pickableObject.itemName == "Gem1" || pickableObject.itemName == "Gem2")
+        else if (pickableObject.itemName == "Gem1")
         {
-            questManager.CompleteQuest("Ramasser la gemme");
-            EquipItem("Gem");
+            questManager.CompleteQuest("Ramasser Gem1");
+            EquipItem("Gem1");
+        }
+        else if (pickableObject.itemName == "Gem2")
+        {
+            questManager.CompleteQuest("Ramasser Gem2");
+            EquipItem("Gem2");
         }
     }
 
@@ -102,24 +109,22 @@ public class PlayerInventory : MonoBehaviour
         {
             PickableObject item = inventory.itemsInInventory[slotIndex];
 
-            if (currentItem == "Axe") axeInHand.SetActive(false);
-            else if (currentItem == "Flashlight") flashlightInHand.SetActive(false);
-            else if (currentItem == "Key") keyInHand.SetActive(false);
-            else if (currentItem == "Gem") gemInHand.SetActive(false);
+            // Désactiver l'objet actuellement équipé
+            DeactivateCurrentItem();
 
+            // Déposer l'objet
             item.transform.position = dropPosition;
             item.gameObject.SetActive(true);
             inventory.RemoveItem(slotIndex);
+
+            // Réinitialiser l'objet actuellement équipé
             currentItem = "";
         }
     }
 
     void EquipItem(string itemName)
     {
-        if (currentItem == "Axe") axeInHand.SetActive(false);
-        else if (currentItem == "Flashlight") flashlightInHand.SetActive(false);
-        else if (currentItem == "Key") keyInHand.SetActive(false);
-        else if (currentItem == "Gem") gemInHand.SetActive(false);
+        DeactivateCurrentItem();
 
         if (itemName == "Axe" && inventory.itemsInInventory.Exists(item => item.itemName == "Axe"))
         {
@@ -133,9 +138,22 @@ public class PlayerInventory : MonoBehaviour
         {
             keyInHand.SetActive(true); currentItem = "Key";
         }
-        else if (itemName == "Gem" && (inventory.itemsInInventory.Exists(item => item.itemName == "Gem1") || inventory.itemsInInventory.Exists(item => item.itemName == "Gem2")))
+        else if (itemName == "Gem1" && inventory.itemsInInventory.Exists(item => item.itemName == "Gem1"))
         {
-            gemInHand.SetActive(true); currentItem = "Gem";
+            gem1InHand.SetActive(true); currentItem = "Gem1";
         }
+        else if (itemName == "Gem2" && inventory.itemsInInventory.Exists(item => item.itemName == "Gem2"))
+        {
+            gem2InHand.SetActive(true); currentItem = "Gem2";
+        }
+    }
+
+    void DeactivateCurrentItem()
+    {
+        if (currentItem == "Axe") axeInHand.SetActive(false);
+        else if (currentItem == "Flashlight") flashlightInHand.SetActive(false);
+        else if (currentItem == "Key") keyInHand.SetActive(false);
+        else if (currentItem == "Gem1") gem1InHand.SetActive(false);
+        else if (currentItem == "Gem2") gem2InHand.SetActive(false);
     }
 }
