@@ -4050,6 +4050,11 @@ Transform:
   - {fileID: 832577104}
   m_Father: {fileID: 1354527500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1075162057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3551755415177905091, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 1108515517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1103035978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4211,6 +4216,10 @@ PrefabInstance:
       propertyPath: flashlightInHand
       value: 
       objectReference: {fileID: 267833477}
+    - target: {fileID: 3551755415177905091, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Name
+      value: Key
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384736, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -10330,6 +10339,7 @@ MonoBehaviour:
   questManager: {fileID: 1113175748}
   axeInHand: {fileID: 263615966}
   flashlightInHand: {fileID: 267833477}
+  keyInHand: {fileID: 1075162057}
 --- !u!114 &1417259376
 MonoBehaviour:
   m_ObjectHideFlags: 0
