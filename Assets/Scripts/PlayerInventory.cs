@@ -147,4 +147,14 @@ public class PlayerInventory : MonoBehaviour
     }
 
 
+    void DeactivateCurrentItem()
+    {
+
+        if (currentItem == "Axe") axeInHand.SetActive(false);
+        else if (currentItem == "Flashlight") flashlightInHand.SetActive(false);
+        else if (currentItem == "Key") keyInHand.SetActive(false);
+        else if (currentItem == "Gem1") gem1InHand.SetActive(false);
+        else if (currentItem == "Gem2") gem2InHand.SetActive(false);
+    }
+
 }
