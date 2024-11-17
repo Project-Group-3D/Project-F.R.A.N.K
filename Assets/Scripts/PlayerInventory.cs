@@ -82,12 +82,12 @@ public class PlayerInventory : MonoBehaviour
         }
         else if (pickableObject.itemName == "Gem1")
         {
-            questManager.CompleteQuest("Ramasser Gem1");
+            questManager.CompleteQuest("Trouver la gem");
             EquipItem("Gem1");
         }
         else if (pickableObject.itemName == "Gem2")
         {
-            questManager.CompleteQuest("Ramasser Gem2");
+            questManager.CompleteQuest("Trouver la deuxième gem");
             EquipItem("Gem2");
         }
     }
