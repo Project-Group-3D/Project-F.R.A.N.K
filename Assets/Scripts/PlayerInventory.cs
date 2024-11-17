@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -319,5 +319,4 @@ public class PlayerInventory : MonoBehaviour
         else if (currentItem == "Gem2") gem2InHand.SetActive(false);
     }
 
-}
->>>>>>> 225566b2f1f5269c9093e94c655d943e9da7a0df
+
