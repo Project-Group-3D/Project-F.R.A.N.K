@@ -78,8 +78,8 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         npc.Interact(); // Appel à la méthode Interact de l'objet NPC
-        StartQuest("Trouver la clé");
-        StartQuest("Ramener la clé");
+        StartQuest("Trouver la clés");
+        StartQuest("Ramener la clés");
     }
 }
 
@@ -89,7 +89,7 @@ public class PlayerInteraction : MonoBehaviour
     if (Input.GetKeyDown(KeyCode.N))
     {
         // Compléter la quête
-        questManager.CompleteQuest("Ramener la clé");
+        questManager.CompleteQuest("Ramener la clés");
         
         // Retirer l'objet "Gem1" de l'inventaire
         int indexToRemove = inventory.itemsInInventory.FindIndex(item => item.itemName == "Key");
