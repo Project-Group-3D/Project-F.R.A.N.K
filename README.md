@@ -7,6 +7,8 @@ Votre objectif : **résoudre des énigmes** pour percer le secret de l'île… t
 
 L'IA du monstre s'adapte à votre comportement : **plus vous êtes repéré à un endroit, plus il patrouillera dans cette zone**. 
 
+Lien vers le trailer et plus de detail : https://www.linkedin.com/posts/dujardin-romain_unity3d-intelligenceartificielle-ia-activity-7259198125662261250-Gx27?utm_source=share&utm_medium=member_desktop&rcm=ACoAADRNYhYBj3wta_e0lwouVIC-M-pRTnBPta0
+
 ## Gameplay & Mécaniques
 ### L’Île
 - Créée **de zéro** par nous même, l’île offre une ambiance immersive et oppressante.  
