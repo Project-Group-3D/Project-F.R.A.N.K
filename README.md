@@ -15,8 +15,7 @@ L'IA du monstre s'adapte à votre comportement : **plus vous êtes repéré à u
 
 ### 👹 Le Monstre (IA Dynamique)
 - Se déplace intelligemment grâce à un **système d’IA avancé**.  
-- Apprend **vos habitudes** : s’il vous voit souvent dans une zone, il y reviendra plus souvent.  
-- Peut vous **chasser** en fonction de la lumière, du bruit et de vos actions.  
+- Apprend **vos habitudes** : s’il vous voit souvent dans une zone, il y reviendra plus souvent. 
 
 ### 🔍 Enigmes & Exploration
 - Trouvez et utilisez des **objets cachés** pour avancer dans l’histoire.  
