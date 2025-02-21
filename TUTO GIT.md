@@ -4,12 +4,12 @@
 ### Cloner le dépôt :
 Ils ouvrent un terminal (CMD, PowerShell, ou un terminal sur Mac).
 Ils exécutent la commande suivante pour cloner le dépôt :
-"git clone https://github.com/Project-Group-3D/Game3D.git"
+"git clone https://github.com/Project-Group-3D/Project-F.R.A.N.K.git"
 Cela crée un dossier Game3D dans leur répertoire utilisateur, qui contient tous les fichiers du projet.
 
 ### Naviguer dans le dossier cloné :
 Ils doivent se déplacer dans le dossier cloné :
-"cd Game3D"
+"cd Project-F.R.A.N.K"
 
 ### Créer une nouvelle branche :
 Ils créent une nouvelle branche pour travailler sur leurs modifications, par exemple pour ajouter des assets :
