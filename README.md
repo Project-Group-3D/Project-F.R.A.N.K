@@ -10,7 +10,7 @@ L'IA du monstre s'adapte à votre comportement : **plus vous êtes repéré à u
 ## 🎮 Gameplay & Mécaniques
 ### 🌎 L’Île
 - Créée **de zéro** par notre équipe, l’île offre une ambiance immersive et oppressante.  
-- Différents lieux à explorer : **ruines abandonnées, grottes sombres, forêts épaisses**…  
+- Différents lieux à explorer : **cimetière abandonné, maisons sombres, forêts épaisses**…  
 - L’environnement évolue au fil du jeu pour renforcer la tension.  
 
 ### 👹 Le Monstre (IA Dynamique)
