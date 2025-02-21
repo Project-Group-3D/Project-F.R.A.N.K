@@ -9,9 +9,9 @@ L'IA du monstre s'adapte à votre comportement : **plus vous êtes repéré à u
 
 ## Gameplay & Mécaniques
 ### L’Île
-- Créée **de zéro** par notre équipe, l’île offre une ambiance immersive et oppressante.  
+- Créée **de zéro** par nous même, l’île offre une ambiance immersive et oppressante.  
 - Différents lieux à explorer : **cimetière abandonné, maisons sombres, forêts épaisses**…  
-- L’environnement évolue au fil du jeu pour renforcer la tension.  
+- L’environnement évolue au fil du jeu.  
 
 ### Le Monstre (IA Dynamique)
 - Se déplace intelligemment grâce à un **système d’IA avancé**.  
@@ -19,7 +19,7 @@ L'IA du monstre s'adapte à votre comportement : **plus vous êtes repéré à u
 
 ### Enigmes & Exploration
 - Trouvez et utilisez des **objets cachés** pour avancer dans l’histoire.  
-- Résolvez des **énigmes complexes** pour avancer dans l'histoire.
+- Résolvez des **énigmes complexes** en parlant avec les PNJ et en explorant.
 
 ### Système d’Inventaire
 - Récupérez des objets et **gérez votre inventaire** stratégiquement.  
@@ -34,8 +34,7 @@ L'IA du monstre s'adapte à votre comportement : **plus vous êtes repéré à u
 
 ## Comment jouer ?
 1. **Télécharger ou cloner** le repo.  
-2. **Lancer le jeu** sur unity et explorez l’île.  
-3. **Restez sur vos gardes** et évitez le monstre à tout prix !  
+2. **Lancer le jeu** sur unity et explorez l’île. 
 
 ## Licence & Contributions
 Projet développé par Hugo / Titouan et Romain. 🎮  
